@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/5.3.1/fabric.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Arapey:ital@0;1&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lobster&family=Pacifico&display=swap"rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/mockup.css">
+    <title>Mockups - 3Studio</title>
+</head>
+
+<body>
+
+    <main>
+        <section class="principal">
+            <div class="container-mockup" id="mainContainer">
+                <div class="box-mockup criar">
+                    <div class="arrow-box">
+                        <img src="img/Vector (8).svg" alt="ícone de seta" class="arrow-icon-img">
+                        <h2 class="title">criar</h2>
+                    </div>
+                    <div class="content">
+                        <div class="option-row">
+                            <button id="modelos-btn" class="main-btn"><i class="fas fa-box"></i> Escolher Modelo</button>
+                        </div>
+
+                        <div class="side-buttons">
+                            <button id="frente-btn" class="active">Frente</button>
+                            <button id="verso-btn">Verso</button>
+                        </div>
+
+                        <div class="option-row upload-box">
+                            <label for="texture-upload" class="upload-label">
+                                <i class="fas fa-upload"></i>
+                                <span id="upload-box-text">Carregar Arte</span>
+                                <input type="file" id="texture-upload" accept="image/*">
+                            </label>
+                            <p class="file-info">Formatos: PNG, JPG</p>
+                        </div>
+                        
+                        <div class="option-row">
+                            <button id="download-btn" class="main-btn download-btn btn-mockup"><i class="fas fa-download"></i> Baixar Imagem</button>
+                        </div>
+
+                    </div>
+
+                    <div class="option-group">
+                            <h4>Ajustes</h4>
+                            <div class="slider-row">
+                                <label for="roughness-slider">Rugosidade<span id="roughness-value">0.50</span></label>
+                                <input type="range" id="roughness-slider" min="0" max="1" step="0.01" value="0.5">
+                            </div>
+                            <div class="slider-row">
+                                <label for="metallic-slider">Metalizado<span id="metallic-value">0.50</span></label>
+                                <input type="range" id="metallic-slider" min="0" max="1" step="0.01" value="0.5">
+
+                            </div>
+                            <div class="slider-row">
+                                <label for="transparency-slider">Transparência<span id="transparency-value">1.00</span></label>
+                                <input type="range" id="transparency-slider" min="0" max="1" step="0.01" value="1">
+                                
+                            </div>
+                        </div>
+                </div>
+
+                
+                <div class="box-mockup planta">
+                    <div class="arrow-box">
+                        <img src="img/Vector (8).svg" alt="ícone de seta" class="arrow-icon-img">
+                        <h2 class="title">Planta</h2>
+                    </div>
+                    <div class="content planta-area">
+                        <canvas id="uv-canvas"></canvas>
+                        <canvas id="texture-generator-canvas" style="display: none;"></canvas>
+                    </div>
+                </div>
+
+
+                <div class="box-mockup viewer">
+                    <div class="content">
+                        <model-viewer id="mockup-viewer" camera-controls touch-action="pan-y" ar-modes="webxr"
+                            shadow-intensity="1" min-field-of-view="10deg" max-field-of-view="80deg"
+                            exposure="1.0" min-camera-orbit="auto auto 5%" max-camera-orbit="auto auto 150%"
+                            auto-rotate rotation-per-second="0s">
+                        </model-viewer>
+                        
+                        <div class="camera-controls">
+                            <button id="zoom-in" class="camera-btn"><i class="fas fa-search-plus"></i></button>
+                            <button id="zoom-out" class="camera-btn"><i class="fas fa-search-minus"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="model-library-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal-btn" id="close-modal-btn">&times;</span>
+            <h3>Escolha seu Modelo</h3>
+            <div id="model-grid"></div>
+        </div>
+    </div>
+
+    <script src="js/mockup.js"></script>
+</body>
+
+</html>
